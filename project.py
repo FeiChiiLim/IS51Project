@@ -39,3 +39,34 @@ while gameOver is False:
     else compareAnswer is "Too Low":
         "Number too low. Guess again!"
 """
+
+
+
+import random
+correctAnswer = random.randint(1,100)
+gameOver = False
+count = 0
+print("I've thought of a number from 1 through 100.")
+
+while gameOver == False:
+    try:
+        playerGuess = int(input("Guess the number: "))
+    except ValueError:
+        print("You did not enter a number. Try again.")
+        continue
+    
+    if playerGuess == correctAnswer:
+        compareAnswer = "Correct"
+        gameOver = True
+    elif playerGuess > correctAnswer:
+        compareAnswer = "Too High"
+    elif playerGuess < correctAnswer:
+        compareAnswer = "Too Low"
+    count +=1
+
+    if compareAnswer == "Correct":
+        print("Correct! You win!", "You took", count, "guesses.")
+    elif compareAnswer == "Too High":
+        print("Number too high. Guess again!")
+    elif compareAnswer == "Too Low":
+        print("Number too low. Guess again!")
